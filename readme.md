@@ -19,7 +19,7 @@
 	```
 	$ mvn compile && mvn spring-boot:run
 	```
-	This will generate JPA Metadata files used in some Criteria Specification queries (type safe).	
+	This will generate JPA Metadata files used in some Criteria Specification queries (type safe) and service going to start.	
 - Any custom configuration like database password can be defined in _**application.properties**_ inside **_resources_** folder on module *service*. Eg.:
 	```
 	spring.datasource.driverClassName                           = org.postgresql.Driver
