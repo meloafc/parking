@@ -20,12 +20,12 @@ public class Period extends AbstractModel {
 
 	@Getter(AccessLevel.PUBLIC)
 	@Setter(AccessLevel.PUBLIC)
-	@Column(name = "ends_at")
+	@Column(name = "starts_at")
 	private			LocalTime		startsAt;
 
 	@Getter(AccessLevel.PUBLIC)
 	@Setter(AccessLevel.PUBLIC)
-	@Column(name = "starts_at")
+	@Column(name = "ends_at")
 	private			LocalTime		endsAt;
 
 	@Getter(AccessLevel.PUBLIC)

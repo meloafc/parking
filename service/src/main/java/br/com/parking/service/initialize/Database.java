@@ -43,7 +43,7 @@ class Database {
 					periodA.setValue(2d);
 					periodB.setDay(day);
 					periodB.setStartsAt(LocalTime.of(12, 0));
-					periodB.setEndsAt(LocalTime.of(18, 0));
+					periodB.setEndsAt(LocalTime.of(23, 0));
 					periodB.setValue(3d);
 					getDAO().save(periodA);
 					getDAO().save(periodB);

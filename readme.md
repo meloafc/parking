@@ -1,4 +1,4 @@
-# Build
+# Build (JDK 11)
 
 ## Command Line
 - First create database with psql (Postgres):
@@ -33,4 +33,4 @@
 	```
 	http://localhost:8080/parking/
 	```
-- Angular Web Application can be put together inside **_static_** folder on **_resources_** folder.
+- Angular Web Application can be put together inside **_static_** folder on **_resources_** folder when generating **_.war_** file for deploy.

@@ -5,7 +5,10 @@ import br.com.parking.service.api.dto.RegisterDTO;
 import br.com.parking.service.api.dto.ReportDTO;
 import br.com.parking.service.database.enumerations.TrafficType;
 import br.com.parking.service.database.enumerations.WeekDay;
-import br.com.parking.service.database.models.*;
+import br.com.parking.service.database.models.Car;
+import br.com.parking.service.database.models.Date;
+import br.com.parking.service.database.models.Period;
+import br.com.parking.service.database.models.Register;
 import br.com.parking.service.database.models.dash.Report;
 import br.com.parking.service.database.models.dash.Report_;
 import org.springframework.stereotype.Service;
@@ -28,9 +31,9 @@ public class RegisterBO extends AbstractBO<Register, RegisterDTO> {
 		Register		lastIn				= Optional.ofNullable(getDAO().find((r, q, b) -> b.and(b.equal(r.get(Register_.car), register.getCar()), b.equal(r.get(Register_.type), TrafficType.IN)), Register.class)).orElse(new ArrayList<>()).parallelStream().max(Comparator.comparing(a -> a.getDate().getDateTime())).orElse(null);
 
 		if (lastIn != null && lastOut == null) {
-			return new RegisterDTO(register, lastIn.getDate().getDateTime(), LocalDateTime.now(), lastIn.getPeriod().getValue());
+			return new RegisterDTO(register, LocalDateTime.now(), lastIn.getDate().getDateTime(), lastIn.getPeriod().getValue());
 		} else if (lastIn != null){
-			return new RegisterDTO(register, lastIn.getDate().getDateTime(), lastOut.getDate().getDateTime(), lastIn.getPeriod().getValue());
+			return new RegisterDTO(register, lastOut.getDate().getDateTime(), lastIn.getDate().getDateTime(), lastIn.getPeriod().getValue());
 		}
 
 		return super.find(identifier);
